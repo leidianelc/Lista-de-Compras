@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Compras</title>
+
+  <!-- CSS na mesma pasta -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>🛒 Lista de Compras da Família</h1>
+
+  <div class="category">
+    <h2>🥩 Proteínas</h2>
+    <ul class="items"></ul>
+    <button onclick="addItem(this)">➕ Adicionar item</button>
+  </div>
+
+  <div class="category">
+    <h2>🍚 Carboidratos</h2>
+    <ul class="items"></ul>
+    <button onclick="addItem(this)">➕ Adicionar item</button>
+  </div>
+
+  <div class="category">
+    <h2>🍌 Frutas</h2>
+    <ul class="items"></ul>
+    <button onclick="addItem(this)">➕ Adicionar item</button>
+  </div>
+
+  <div class="category">
+    <h2>🥦 Legumes e Verduras</h2>
+    <ul class="items"></ul>
+    <button onclick="addItem(this)">➕ Adicionar item</button>
+  </div>
+
+  <div class="category">
+    <h2>🥑 Gorduras Boas</h2>
+    <ul class="items"></ul>
+    <button onclick="addItem(this)">➕ Adicionar item</button>
+  </div>
+
+  <div class="category">
+    <h2>🧂 Extras Essenciais</h2>
+    <ul class="items"></ul>
+    <button onclick="addItem(this)">➕ Adicionar item</button>
+  </div>
+
+  <div class="actions">
+    <h2>💰 Total Geral: R$ <span id="total">0.00</span></h2>
+    <button onclick="resetList()">Limpar Lista</button>
+  </div>
+</div>
+
+<!-- JS na mesma pasta -->
+<script src="script.js"></script>
+</body>
+</html>
