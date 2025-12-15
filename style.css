@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background: #eef5f1;
-  padding: 20px;
+  padding: 10px;
 }
 
 .container {
@@ -15,10 +15,11 @@ body {
 
 h1 {
   text-align: center;
+  font-size: 1.8em;
 }
 
 .category {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .category h2 {
@@ -26,17 +27,19 @@ h1 {
   color: #1f3d2b;
   padding: 10px;
   border-radius: 8px;
+  font-size: 1.1em;
 }
 
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 li {
   display: grid;
-  grid-template-columns: 40px 1fr 80px 120px 120px;
-  gap: 8px;
+  grid-template-columns: 40px 1fr 70px 110px 110px 90px;
+  gap: 6px;
   align-items: center;
   padding: 6px 0;
   border-bottom: 1px solid #ddd;
@@ -51,6 +54,7 @@ input[type="checkbox"] {
 .unit,
 .total-item {
   padding: 6px;
+  font-size: 0.95em;
 }
 
 .total-item {
@@ -63,10 +67,7 @@ input[type="checkbox"] {
 }
 
 button {
-  margin-top: 8px;
-  padding: 8px 14px;
-  background: #7fbfa1;
-  color: #0f2f1f;
+  padding: 6px 12px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -74,23 +75,64 @@ button {
 }
 
 button:hover {
+  opacity: 0.9;
+}
+
+.remove-btn {
+  background: #f4a6a6;
+  color: #5a1a1a;
+}
+
+.remove-btn:hover {
+  background: #e88989;
+}
+
+.category > button {
+  background: #7fbfa1;
+  color: #0f2f1f;
+}
+
+.category > button:hover {
   background: #6aaa8d;
 }
 
 .actions {
   text-align: center;
-  margin-top: 30px;
-}
-.remove-btn {
-  background: #f4a6a6;
-  color: #5a1a1a;
-  border: none;
-  border-radius: 6px;
-  padding: 6px 10px;
-  cursor: pointer;
-  font-weight: bold;
+  margin-top: 20px;
 }
 
-.remove-btn:hover {
-  background: #e88989;
+.actions button {
+  background: #7fbfa1;
+  color: #0f2f1f;
+}
+
+.actions button:hover {
+  background: #6aaa8d;
+}
+
+/* MEDIA QUERIES PARA CELULAR */
+@media (max-width: 768px) {
+  li {
+    grid-template-columns: 35px 1fr;
+    gap: 6px;
+  }
+
+  .qty,
+  .unit,
+  .total-item,
+  .remove-btn {
+    grid-column: 1 / -1; /* ocupa a linha toda */
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .item-name {
+    font-size: 1em;
+  }
+
+  .category > button,
+  .actions button {
+    width: 100%;
+    margin-top: 6px;
+  }
 }
