@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lista de Compras</title>
-<link rel="manifest" href="manifest.json">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🛒 Lista de Compras</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- BOTÃO MENU -->
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<!-- MENU LATERAL -->
+<nav id="menu-lateral">
+  <h2>📋 Menu</h2>
+
+  <button onclick="openModal()">➕ Adicionar item</button>
+  <button onclick="saveList()">💾 Salvar lista</button>
+  <button onclick="toggleHistory()">📚 Histórico</button>
+  <button onclick="shareList()">📤 Compartilhar</button>
+  <button onclick="copyText()">📋 Copiar total</button>
+  <button onclick="printList()">🖨 Imprimir</button>
+</nav>
+
+<!-- CONTEÚDO -->
 <div class="container">
   <h1>🛒 Lista de Compras</h1>
   <div id="categories"></div>
   <h2 class="total">💰 Total Geral: R$ <span id="grandTotal">0.00</span></h2>
 </div>
 
-<!-- MENU FLUTUANTE -->
-<div class="fab">
-  <button class="fab-main" onclick="toggleFab()">☰</button>
-
-  <div class="fab-actions">
-    <button title="Adicionar" onclick="openModal()">➕</button>
-    <button title="Salvar" onclick="saveList()">💾</button>
-    <button title="Histórico" onclick="toggleHistory()">📚</button>
-    <button title="Compartilhar" onclick="shareList()">📤</button>
-    <button title="Copiar" onclick="copyText()">📋</button>
-    <button title="Imprimir" onclick="printList()">🖨</button>
-  </div>
-</div>
-
-<!-- MODAL ADICIONAR -->
+<!-- MODAL -->
 <div id="modal" class="modal">
   <div class="modal-content">
     <h3>Adicionar Item</h3>
