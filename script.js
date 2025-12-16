@@ -123,22 +123,36 @@ function saveList(){
 
 /* ---------- HISTÓRICO ---------- */
 function toggleHistory(){
+  const box = historyBox;
   historyList.innerHTML = "";
 
   history.forEach(h => {
-    const b = document.createElement("button");
-    b.textContent = `${h.name} - ${h.date}`;
-    b.onclick = () => {
+    let total = 0;
+    Object.values(h.data).forEach(c =>
+      c.forEach(i => total += i.qty * i.price)
+    );
+
+    const card = document.createElement("div");
+    card.className = "history-card";
+
+    card.innerHTML = `
+      <h4>${h.name}</h4>
+      <small>${h.date}</small>
+      <div class="history-total">Total: R$ ${total.toFixed(2)}</div>
+    `;
+
+    card.onclick = () => {
       data = JSON.parse(JSON.stringify(h.data));
       render();
       toggleHistory();
     };
-    historyList.appendChild(b);
+
+    historyList.appendChild(card);
   });
 
-  historyBox.classList.toggle("show");
-  closeMenu();
+  box.classList.toggle("show");
 }
+
 
 /* ---------- COMPARTILHAR ---------- */
 function shareList(){

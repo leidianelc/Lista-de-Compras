@@ -185,3 +185,67 @@ input, select{
   padding:10px;
   margin:6px 0;
 }
+/* HISTÓRICO - DESIGN BONITO */
+/* BOTÃO FECHAR HISTÓRICO */
+/* BOTÃO FECHAR HISTÓRICO */
+#historyBox h3 button{
+  width:32px;
+  height:32px;
+  border:none;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff6b6b,#d84343);
+  color:#fff;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 3px 6px rgba(0,0,0,.25);
+  transition:.2s;
+}
+
+#historyBox h3 button:hover{
+  transform:scale(1.1);
+  background:linear-gradient(135deg,#ff7b7b,#c62828);
+}
+
+#historyBox h3 button:hover{
+  transform:scale(1.1);
+}
+
+
+#historyList{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* CARD DO HISTÓRICO */
+.history-card{
+  background:#fff;
+  border-radius:14px;
+  padding:14px;
+  box-shadow:0 4px 10px rgba(0,0,0,.15);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.history-card:hover{
+  transform:scale(1.02);
+}
+
+.history-card h4{
+  margin:0;
+  color:#1f3d2b;
+}
+
+.history-card small{
+  color:#555;
+}
+
+.history-total{
+  margin-top:6px;
+  font-weight:bold;
+  color:#4ea885;
+}
