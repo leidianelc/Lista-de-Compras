@@ -1,60 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Lista de Compras</title>
-
-  <!-- CSS na mesma pasta -->
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de Compras</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="container">
-  <h1>🛒 Lista de Compras da Família</h1>
+  <h1>🛒 Lista de Compras</h1>
+  <div id="categories"></div>
+  <h2 class="total">💰 Total Geral: R$ <span id="grandTotal">0.00</span></h2>
+</div>
 
-  <div class="category">
-    <h2>🥩 Proteínas</h2>
-    <ul class="items"></ul>
-    <button onclick="addItem(this)">➕ Adicionar item</button>
-  </div>
+<!-- MENU FLUTUANTE -->
+<div class="fab">
+  <button class="fab-main" onclick="toggleFab()">☰</button>
 
-  <div class="category">
-    <h2>🍚 Carboidratos</h2>
-    <ul class="items"></ul>
-    <button onclick="addItem(this)">➕ Adicionar item</button>
-  </div>
-
-  <div class="category">
-    <h2>🍌 Frutas</h2>
-    <ul class="items"></ul>
-    <button onclick="addItem(this)">➕ Adicionar item</button>
-  </div>
-
-  <div class="category">
-    <h2>🥦 Legumes e Verduras</h2>
-    <ul class="items"></ul>
-    <button onclick="addItem(this)">➕ Adicionar item</button>
-  </div>
-
-  <div class="category">
-    <h2>🥑 Gorduras Boas</h2>
-    <ul class="items"></ul>
-    <button onclick="addItem(this)">➕ Adicionar item</button>
-  </div>
-
-  <div class="category">
-    <h2>🧂 Extras Essenciais</h2>
-    <ul class="items"></ul>
-    <button onclick="addItem(this)">➕ Adicionar item</button>
-  </div>
-
-  <div class="actions">
-    <h2>💰 Total Geral: R$ <span id="total">0.00</span></h2>
-    <button onclick="resetList()">Limpar Lista</button>
+  <div class="fab-actions">
+    <button title="Adicionar" onclick="openModal()">➕</button>
+    <button title="Salvar" onclick="saveList()">💾</button>
+    <button title="Histórico" onclick="toggleHistory()">📚</button>
+    <button title="Compartilhar" onclick="shareList()">📤</button>
+    <button title="Copiar" onclick="copyText()">📋</button>
+    <button title="Imprimir" onclick="printList()">🖨</button>
   </div>
 </div>
 
-<!-- JS na mesma pasta -->
+<!-- MODAL ADICIONAR -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h3>Adicionar Item</h3>
+
+    <select id="modalCategory"></select>
+    <input id="modalName" placeholder="Nome do item">
+
+    <div class="row">
+      <input id="modalQty" type="number" min="1" value="1">
+      <select id="modalUnit">
+        <option>kg</option><option>g</option>
+        <option>L</option><option>mL</option>
+        <option>UN</option><option>PC</option>
+      </select>
+    </div>
+
+    <input id="modalPrice" type="number" step="0.01" placeholder="Valor unitário (R$)">
+
+    <div class="modal-actions">
+      <button onclick="closeModal()">Cancelar</button>
+      <button onclick="confirmAdd()">Adicionar</button>
+    </div>
+  </div>
+</div>
+
+<!-- HISTÓRICO -->
+<div id="historyBox">
+  <h3>Histórico <button onclick="toggleHistory()">✖</button></h3>
+  <div id="historyList"></div>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
